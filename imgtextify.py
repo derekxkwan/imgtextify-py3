@@ -7,7 +7,7 @@ thresh = 150
 cur_res = 20
 darkchar = "*"
 lightchar = "."
-
+num_newlines = 1
 
 ret_str = " "
 
@@ -24,6 +24,7 @@ else:
             thresh = int(argc)
         elif i == 4:
             darkchar = argc.strip()
+            num_newlines = len(darkchar)
         elif i ==5:
             lightchar = argc.strip()
         elif i == 6:
@@ -65,7 +66,8 @@ for j,y in  enumerate([h*cur_step for h in range(cur_resh)]):
         else:
             ret_str += lightchar
         if lastcol:
-            ret_str += "\n"
+            for k in range(num_newlines):
+                ret_str += "\n"
         if no_spaces == False:
             ret_str += " "
 

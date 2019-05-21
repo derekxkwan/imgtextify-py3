@@ -12,6 +12,9 @@
 - lightchar - character to print for light squares (default .)
 - nospaces - if an argument is passed here, do NOT print spaces in between output characters (default with spaces)
 
+
+note that the darkchar and lightchar can be multiple characters, given that you properly escape needed characters (like parentheses)
+
 ## LICENSE
 
 GPL v3
