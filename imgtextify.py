@@ -29,7 +29,7 @@ def line_array(cur_img, cur_res, cur_thresh, cur_dark, cur_light, cur_nospaces, 
                 if j == (cur_resh - 1):
                     h0 = (cur_h - y)
             cur_box = (x, y, x+w0, y + h0)
-            cur_sq = im.crop(cur_box)
+            cur_sq = cur_img.crop(cur_box)
             cur_means = ImageStat.Stat(cur_sq).mean
             cur_mean = functools.reduce(lambda x,y: x+y, cur_means)/len(cur_means)
             #print(cur_means, cur_mean)
@@ -68,10 +68,11 @@ else:
             thresh = int(argc)
         elif i == 4:
             darkchar = argc.strip()
-            num_newlines = len(darkchar)
         elif i ==5:
             lightchar = argc.strip()
         elif i == 6:
+            num_newlines = int(argc)
+        elif i == 7:
             no_spaces = True
             
         
