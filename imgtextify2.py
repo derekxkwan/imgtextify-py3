@@ -3,6 +3,7 @@ from PIL import Image, ImageStat
 
 no_spaces = False
 thresh = 150
+thresh2 = 150
 # defaults
 res = 20
 darkchar = "*"
@@ -71,16 +72,18 @@ else:
         elif i == 4:
             thresh = int(argc)
         elif i == 5:
+            thresh2 = int(argc)
+        elif i == 6:
             darkchar = argc.strip()
-        elif i ==6:
+        elif i == 7:
             lightchar = argc.strip()
-        elif i ==7:
+        elif i ==8:
             darkchar2 = argc.strip()
-        elif i == 8:
-            lightchar2 = argc.strip()
         elif i == 9:
+            lightchar2 = argc.strip()
+        elif i == 10:
             num_newlines = int(argc)
-        elif i==10:
+        elif i== 11:
             no_spaces = True
             
         
@@ -92,7 +95,7 @@ try:
     im2 = Image.open(cur_path2)
     im_dims = im.size
     ret_arr = line_array(im, res, thresh, darkchar, lightchar, no_spaces, (0,0))
-    ret_arr2 = line_array(im2, res, thresh, darkchar2, lightchar2, no_spaces, im_dims)
+    ret_arr2 = line_array(im2, res, thresh2, darkchar2, lightchar2, no_spaces, im_dims)
     ret_str = build_string([ret_arr, ret_arr2], num_newlines,num_newlines)
     print(ret_str)
     
