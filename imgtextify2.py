@@ -29,8 +29,8 @@ def line_array(cur_img, cur_res, cur_thresh, cur_dark, cur_light, cur_nospaces, 
             lastcol = i == (cur_res - 1)
             if lastcol:
                 w0 = (cur_w - x)
-                if j == (cur_resh - 1):
-                    h0 = (cur_h - y)
+            if j == (cur_resh - 1):
+                h0 = (cur_h - y)
             cur_box = (x, y, x+w0, y + h0)
             cur_sq = cur_img.crop(cur_box)
             cur_means = ImageStat.Stat(cur_sq).mean
